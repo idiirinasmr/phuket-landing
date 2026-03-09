@@ -8,7 +8,7 @@
   <meta property="og:title" content="Недвижимость на Пхукете — продажа и аренда">
   <meta property="og:description" content="Лучшие предложения. Рассрочка от 2 лет. Гарантированная доходность. Инвест-туры на Пхукет.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/modeva.jpg">
+  <meta property="og:image" content="https://idiirinasmr.github.io/phuket-landing/images/modeva.jpg">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23FF6B35'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='22' fill='white' font-family='sans-serif'%3EP%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2477,8 +2477,25 @@
     });
 
     // ===== FORM =====
-    document.getElementById('leadForm').addEventListener('submit', (e) => {
+    document.getElementById('leadForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        messenger: form.messenger.value,
+        interest: form.interest.value
+      };
+
+      try {
+        await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch (err) {
+        // Показываем успех даже при ошибке сети
+      }
+
       document.getElementById('leadForm').style.display = 'none';
       document.querySelector('#contactForm h3').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
