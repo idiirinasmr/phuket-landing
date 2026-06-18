@@ -491,6 +491,7 @@
       .hero-stats { gap: 1rem; }
       .hero-stat { padding-right: 1rem; }
       .hero-stat-value { font-size: 1.3rem; }
+      .hero h1 .hero-tagline { white-space: normal; }
     }
 
     /* ===== WHY PHUKET ===== */
@@ -1374,6 +1375,9 @@
 
     @media (max-width: 768px) {
       .floating-wa.show { display: flex; }
+      /* iOS не поддерживает background-attachment: fixed */
+      body { background-attachment: scroll; }
+      .invest-tours { background-attachment: scroll; }
     }
 
     /* ===== КНОПКА НАВЕРХ ===== */

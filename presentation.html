@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Таиланд — Недвижимость на Пхукете</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 24px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── SLIDE BASE ── */
+    .slide {
+      width: 297mm;
+      height: 210mm;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    /* ══════════════════════════════════════════
+       SLIDE 1 — ТАИЛАНД
+    ══════════════════════════════════════════ */
+    .slide-1 {
+      background: #0a1e28;
+    }
+    .slide-1 .bg-image {
+      position: absolute;
+      inset: 0;
+      background: url('images/modeva.jpg') center center / cover no-repeat;
+      filter: brightness(0.45) saturate(0.85);
+    }
+    .slide-1 .bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(8, 25, 35, 0.75) 0%,
+        rgba(15, 45, 60, 0.55) 50%,
+        rgba(5, 18, 28, 0.80) 100%
+      );
+    }
+    .slide-1 .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 40mm;
+    }
+    .slide-1 .badge {
+      display: inline-block;
+      letter-spacing: 0.25em;
+      font-size: 9pt;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: #FF6B35;
+      text-transform: uppercase;
+      margin-bottom: 18mm;
+      padding: 5px 16px;
+      border: 1px solid rgba(255,107,53,0.4);
+      border-radius: 50px;
+    }
+    .slide-1 h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 82pt;
+      letter-spacing: 0.18em;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 7mm;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+    .slide-1 .divider {
+      width: 80mm;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a227, transparent);
+      margin: 0 auto 7mm;
+    }
+    .slide-1 .subtitle {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 400;
+      font-size: 14pt;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,0.88);
+      text-transform: uppercase;
+    }
+    .slide-1 .logo-bottom {
+      position: absolute;
+      bottom: 8mm;
+      right: 10mm;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 9pt;
+      color: #FF6B35;
+      letter-spacing: 0.08em;
+      opacity: 0.85;
+    }
+    .slide-1 .corner-decor {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40mm;
+      height: 40mm;
+      background: linear-gradient(135deg, rgba(255,107,53,0.12), transparent);
+    }
+    .slide-1 .corner-decor-tr {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30mm;
+      height: 30mm;
+      background: linear-gradient(225deg, rgba(201,162,39,0.1), transparent);
+    }
+
+    /* ══════════════════════════════════════════
+       SLIDE 2 — ПХУКЕТ + ПОГОДА
+    ══════════════════════════════════════════ */
+    .slide-2 {
+      display: flex;
+      flex-direction: column;
+      background: #f8f4ee;
+    }
+
+    /* TOP: ПХУКЕТ */
+    .slide-2 .phuket-section {
+      display: flex;
+      flex: 0 0 58%;
+      background: #f8f4ee;
+    }
+    .slide-2 .phuket-left {
+      width: 55%;
+      padding: 9mm 8mm 6mm 11mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-2 .phuket-dot-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4mm;
+    }
+    .slide-2 .phuket-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #FF6B35;
+      flex-shrink: 0;
+    }
+    .slide-2 .phuket-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FF6B35;
+    }
+    .slide-2 h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 52pt;
+      color: #1a1a2e;
+      line-height: 1;
+      margin-bottom: 5mm;
+      letter-spacing: 0.04em;
+    }
+    .slide-2 .phuket-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.65;
+      color: #4a5568;
+      margin-bottom: 5mm;
+      max-width: 88mm;
+    }
+    .slide-2 .stat-bubble {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #FF6B35;
+      border-radius: 12px;
+      padding: 8px 12px;
+      max-width: 88mm;
+    }
+    .slide-2 .stat-bubble-icon {
+      font-size: 18pt;
+      color: #fff;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .slide-2 .stat-bubble-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8.5pt;
+      color: #fff;
+      line-height: 1.4;
+    }
+    .slide-2 .stat-bubble-text strong {
+      display: block;
+      font-size: 11pt;
+      font-weight: 700;
+      margin-bottom: 1px;
+    }
+
+    .slide-2 .phuket-right {
+      width: 45%;
+      padding: 8mm 10mm 6mm 4mm;
+      display: flex;
+      flex-direction: column;
+      gap: 4mm;
+      justify-content: center;
+    }
+    .slide-2 .photo-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      flex: 1;
+    }
+    .slide-2 .photo-card-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-aerial-1 {
+      background: linear-gradient(135deg, #0a4f6b 0%, #1a7a9a 40%, #0d5a7a 70%, #0a3d52 100%);
+    }
+    .photo-aerial-2 {
+      background: linear-gradient(135deg, #0d3d52 0%, #1a6080 40%, #2a8aaa 70%, #1a5570 100%);
+    }
+    .slide-2 .photo-card svg {
+      opacity: 0.25;
+      width: 28px;
+      height: 28px;
+      color: #fff;
+    }
+    .photo-card-label {
+      position: absolute;
+      bottom: 6px;
+      left: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* BOTTOM: ПОГОДА */
+    .slide-2 .weather-section {
+      flex: 0 0 42%;
+      background: linear-gradient(135deg, #0d2b35 0%, #0f3545 40%, #1a4a5a 80%, #0d3040 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 5mm 10mm 5mm 11mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-2 .weather-section::before {
+      content: '';
+      position: absolute;
+      top: -20mm;
+      right: -10mm;
+      width: 60mm;
+      height: 60mm;
+      border-radius: 50%;
+      background: rgba(255,107,53,0.06);
+      filter: blur(15px);
+    }
+    .slide-2 .weather-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4mm;
+    }
+    .slide-2 .weather-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 18pt;
+      color: #fff;
+      letter-spacing: 0.08em;
+    }
+    .slide-2 .weather-subtitle {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8pt;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .slide-2 .weather-table {
+      display: flex;
+      gap: 2.5mm;
+    }
+    .slide-2 .month-card {
+      flex: 1;
+      background: rgba(255,255,255,0.07);
+      border-radius: 6px;
+      border-top: 2px solid #FF6B35;
+      padding: 3px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      backdrop-filter: blur(4px);
+    }
+    .slide-2 .month-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 5.5pt;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .slide-2 .month-day {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9pt;
+      font-weight: 700;
+      color: #FF6B35;
+      line-height: 1;
+    }
+    .slide-2 .month-night {
+      font-family: 'Inter', sans-serif;
+      font-size: 6pt;
+      color: rgba(255,255,255,0.45);
+      line-height: 1;
+    }
+    .slide-2 .weather-legend {
+      display: flex;
+      gap: 10mm;
+      margin-top: 3mm;
+    }
+    .slide-2 .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      color: rgba(255,255,255,0.5);
+    }
+    .slide-2 .legend-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    /* ══════════════════════════════════════════
+       SLIDE 3 — ОБРАЗОВАНИЕ + МЕДИЦИНА
+    ══════════════════════════════════════════ */
+    .slide-3 {
+      display: flex;
+      background: #f8f4ee;
+    }
+
+    /* LEFT: ОБРАЗОВАНИЕ */
+    .slide-3 .edu-col {
+      width: 48%;
+      background: linear-gradient(160deg, #0d2b35 0%, #0f3545 50%, #1a4555 100%);
+      padding: 10mm 10mm 10mm 11mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide-3 .edu-col::before {
+      content: '';
+      position: absolute;
+      top: -15mm;
+      right: -15mm;
+      width: 50mm;
+      height: 50mm;
+      border-radius: 50%;
+      background: rgba(255,107,53,0.08);
+      filter: blur(20px);
+    }
+    .slide-3 .edu-col::after {
+      content: '';
+      position: absolute;
+      bottom: -10mm;
+      left: -10mm;
+      width: 40mm;
+      height: 40mm;
+      border-radius: 50%;
+      background: rgba(201,162,39,0.06);
+      filter: blur(15px);
+    }
+    .slide-3 .edu-top {
+      position: relative;
+      z-index: 1;
+    }
+    .slide-3 .edu-big-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 64pt;
+      line-height: 0.9;
+      color: #c9a227;
+      margin-bottom: 2mm;
+      letter-spacing: -0.02em;
+    }
+    .slide-3 .edu-number-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.4;
+      margin-bottom: 6mm;
+      max-width: 55mm;
+    }
+    .slide-3 .edu-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 26pt;
+      color: #fff;
+      letter-spacing: 0.06em;
+      margin-bottom: 2mm;
+    }
+    .slide-3 .edu-accent-line {
+      width: 20mm;
+      height: 2px;
+      background: linear-gradient(90deg, #FF6B35, #c9a227);
+      border-radius: 2px;
+      margin-bottom: 5mm;
+    }
+    .slide-3 .edu-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.6);
+      max-width: 60mm;
+    }
+    .slide-3 .edu-icons {
+      display: flex;
+      gap: 5mm;
+      position: relative;
+      z-index: 1;
+    }
+    .slide-3 .edu-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .slide-3 .edu-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,107,53,0.15);
+      border: 1px solid rgba(255,107,53,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FF6B35;
+    }
+    .slide-3 .edu-icon-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 5.5pt;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* RIGHT: МЕДИЦИНА */
+    .slide-3 .med-col {
+      width: 52%;
+      padding: 10mm 11mm 10mm 10mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #f8f4ee;
+    }
+    .slide-3 .med-top {
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-3 .med-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 26pt;
+      color: #1a1a2e;
+      letter-spacing: 0.06em;
+      margin-bottom: 2mm;
+    }
+    .slide-3 .med-accent-line {
+      width: 20mm;
+      height: 2px;
+      background: linear-gradient(90deg, #FF6B35, #c9a227);
+      border-radius: 2px;
+      margin-bottom: 6mm;
+    }
+    .slide-3 .med-stat-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 6mm;
+      margin-bottom: 5mm;
+    }
+    .slide-3 .med-badge {
+      width: 22mm;
+      height: 22mm;
+      border-radius: 50%;
+      background: #FF6B35;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.35);
+    }
+    .slide-3 .med-badge-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 14pt;
+      color: #fff;
+      line-height: 1;
+    }
+    .slide-3 .med-badge-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 5pt;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      line-height: 1.2;
+      max-width: 16mm;
+    }
+    .slide-3 .med-stat-text {
+      flex: 1;
+    }
+    .slide-3 .med-stat-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 2mm;
+    }
+    .slide-3 .med-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      line-height: 1.6;
+      color: #4a5568;
+    }
+    .slide-3 .med-desc-2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      line-height: 1.6;
+      color: #4a5568;
+      margin-bottom: 5mm;
+    }
+    .slide-3 .med-highlight {
+      background: #FF6B35;
+      border-radius: 10px;
+      padding: 5mm 6mm;
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+    }
+    .slide-3 .med-highlight-icon {
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .slide-3 .med-highlight-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .slide-3 .med-highlight-text span {
+      font-size: 8pt;
+      font-weight: 400;
+      opacity: 0.85;
+      display: block;
+      margin-top: 1px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        gap: 0;
+      }
+      .slide {
+        box-shadow: none;
+        width: 297mm;
+        height: 210mm;
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════
+       СЛАЙД 1 — ТАИЛАНД
+  ════════════════════════════════════ -->
+  <div class="slide slide-1">
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+    <div class="corner-decor"></div>
+    <div class="corner-decor-tr"></div>
+
+    <div class="content">
+      <div class="badge">Phuket Property</div>
+      <h1>ТАИЛАНД</h1>
+      <div class="divider"></div>
+      <div class="subtitle">Создан для сдачи и инвестиций</div>
+    </div>
+
+    <div class="logo-bottom">Phuket Property</div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       СЛАЙД 2 — ПХУКЕТ + ПОГОДА
+  ════════════════════════════════════ -->
+  <div class="slide slide-2">
+
+    <!-- TOP: ПХУКЕТ -->
+    <div class="phuket-section">
+      <div class="phuket-left">
+        <div class="phuket-dot-row">
+          <div class="phuket-dot"></div>
+          <span class="phuket-label">Острова Таиланда</span>
+        </div>
+        <h2>ПХУКЕТ</h2>
+        <p class="phuket-desc">
+          Самый большой остров Таиланда, известный своими красивыми
+          пляжами, памятниками и культурными святынями. Благодаря балансу
+          природных и экономических ресурсов, Пхукет — прекрасное место
+          для инвестиций в Юго-Восточной Азии.
+        </p>
+        <div class="stat-bubble">
+          <div class="stat-bubble-icon">🌏</div>
+          <div class="stat-bubble-text">
+            <strong>Более 4 000 000 000 человек</strong>
+            живут всего в 5 часах от Таиланда
+          </div>
+        </div>
+      </div>
+
+      <div class="phuket-right">
+        <div class="photo-card photo-aerial-1" style="flex:1.1;">
+          <div class="photo-card-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <path d="M9 22V12h6v10"/>
+            </svg>
+          </div>
+          <span class="photo-card-label">Банг Тао · Побережье</span>
+        </div>
+        <div class="photo-card photo-aerial-2" style="flex:0.9;">
+          <div class="photo-card-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+            </svg>
+          </div>
+          <span class="photo-card-label">Пхукет · Вид с высоты</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM: ПОГОДА -->
+    <div class="weather-section">
+      <div class="weather-header">
+        <span class="weather-title">ПОГОДА</span>
+        <span class="weather-subtitle">в течение года</span>
+      </div>
+      <div class="weather-table">
+        <div class="month-card"><span class="month-name">Янв</span><span class="month-day">29°</span><span class="month-night">19°</span></div>
+        <div class="month-card"><span class="month-name">Фев</span><span class="month-day">30°</span><span class="month-night">20°</span></div>
+        <div class="month-card"><span class="month-name">Мар</span><span class="month-day">31°</span><span class="month-night">22°</span></div>
+        <div class="month-card"><span class="month-name">Апр</span><span class="month-day">33°</span><span class="month-night">24°</span></div>
+        <div class="month-card"><span class="month-name">Май</span><span class="month-day">33°</span><span class="month-night">25°</span></div>
+        <div class="month-card"><span class="month-name">Июн</span><span class="month-day">32°</span><span class="month-night">25°</span></div>
+        <div class="month-card"><span class="month-name">Июл</span><span class="month-day">31°</span><span class="month-night">25°</span></div>
+        <div class="month-card"><span class="month-name">Авг</span><span class="month-day">31°</span><span class="month-night">25°</span></div>
+        <div class="month-card"><span class="month-name">Сен</span><span class="month-day">31°</span><span class="month-night">24°</span></div>
+        <div class="month-card"><span class="month-name">Окт</span><span class="month-day">30°</span><span class="month-night">23°</span></div>
+        <div class="month-card"><span class="month-name">Ноя</span><span class="month-day">29°</span><span class="month-night">21°</span></div>
+        <div class="month-card"><span class="month-name">Дек</span><span class="month-day">29°</span><span class="month-night">19°</span></div>
+      </div>
+      <div class="weather-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#FF6B35;"></div> Дневная температура</div>
+        <div class="legend-item"><div class="legend-dot" style="background:rgba(255,255,255,0.4);"></div> Ночная температура</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════
+       СЛАЙД 3 — ОБРАЗОВАНИЕ + МЕДИЦИНА
+  ════════════════════════════════════ -->
+  <div class="slide slide-3">
+
+    <!-- LEFT: ОБРАЗОВАНИЕ -->
+    <div class="edu-col">
+      <div class="edu-top">
+        <div class="edu-big-number">&lt;50</div>
+        <div class="edu-number-label">международных школ<br>и детских садов</div>
+        <div class="edu-heading">ОБРАЗОВАНИЕ</div>
+        <div class="edu-accent-line"></div>
+        <div class="edu-desc">
+          На Пхукете работают десятки международных школ и детских садов
+          с программами British Curriculum, IB и американскими стандартами.
+          Обучение на английском языке доступно с 2 лет.
+        </div>
+      </div>
+      <div class="edu-icons">
+        <div class="edu-icon-item">
+          <div class="edu-icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <span class="edu-icon-label">British<br>Curriculum</span>
+        </div>
+        <div class="edu-icon-item">
+          <div class="edu-icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+            </svg>
+          </div>
+          <span class="edu-icon-label">IB<br>Программа</span>
+        </div>
+        <div class="edu-icon-item">
+          <div class="edu-icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+            </svg>
+          </div>
+          <span class="edu-icon-label">English<br>с 2 лет</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: МЕДИЦИНА -->
+    <div class="med-col">
+      <div class="med-top">
+        <div class="med-heading">МЕДИЦИНА</div>
+        <div class="med-accent-line"></div>
+        <div class="med-stat-row">
+          <div class="med-badge">
+            <div class="med-badge-num">#5</div>
+            <div class="med-badge-label">из 89 стран</div>
+          </div>
+          <div class="med-stat-text">
+            <div class="med-stat-title">Глобальный индекс GHI (Global Healthcare Index)</div>
+            <div class="med-desc">
+              Согласно Глобального индекса качества здравоохранения,
+              Таиланд занимает 5 место из 89. В рейтинге качества
+              медицинских услуг Таиланд признан одним из предпочтительных
+              направлений для медицинского туризма в Азии.
+            </div>
+          </div>
+        </div>
+        <div class="med-desc-2">
+          Таиланд считается одним из самых популярных направлений
+          медицинского туризма в мире. Высококлассные частные клиники,
+          современное оборудование, врачи с международными сертификатами.
+        </div>
+      </div>
+      <div class="med-highlight">
+        <div class="med-highlight-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="med-highlight-text">
+          До 27% глобального рынка медицинского туризма
+          <span>приходится на Таиланд по данным мировой статистики</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
