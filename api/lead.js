@@ -12,10 +12,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, messenger, interest } = req.body;
+  const { name, messenger, email, interest } = req.body;
 
-  if (!name || !messenger) {
-    return res.status(400).json({ error: 'Имя и контакт обязательны' });
+  if (!name || (!messenger && !email)) {
+    return res.status(400).json({ error: 'Имя и хотя бы один контакт обязательны' });
   }
 
   const interestMap = {
@@ -25,7 +25,12 @@ export default async function handler(req, res) {
     other: 'Другое'
   };
 
-  const text = `🏠 Новая заявка с лендинга!\n\n👤 Имя: ${name}\n📱 Контакт: ${messenger}\n📋 Интерес: ${interestMap[interest] || interest}`;
+  const contactLine = [
+    messenger ? `📱 Мессенджер: ${messenger}` : null,
+    email ? `📧 Email: ${email}` : null
+  ].filter(Boolean).join('\n');
+
+  const text = `🏠 Новая заявка с лендинга!\n\n👤 Имя: ${name}\n${contactLine}\n📋 Интерес: ${interestMap[interest] || interest}`;
 
   // Отправка в Telegram
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
