@@ -689,6 +689,13 @@
     @media (max-width: 1024px) {
       .catalog-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    .catalog-slider-wrap {
+      position: relative;
+    }
+    .catalog-arrow {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .catalog-grid {
         grid-template-columns: 1fr;
@@ -698,12 +705,38 @@
         gap: 1rem;
         padding-bottom: 1rem;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
+      .catalog-grid::-webkit-scrollbar { display: none; }
       .property-card {
         min-width: 85vw;
         scroll-snap-align: start;
         flex-shrink: 0;
       }
+      .property-img {
+        aspect-ratio: 16/9;
+      }
+      .catalog-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 35%;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: var(--accent);
+        color: #fff;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        opacity: 0.92;
+      }
+      .catalog-arrow-prev { left: -4px; }
+      .catalog-arrow-next { right: -4px; }
     }
 
     /* ===== CALCULATOR ===== */
@@ -1545,8 +1578,12 @@
         <button class="filter-btn" data-filter="condo">Кондо</button>
       </div>
 
-      <div class="catalog-grid" id="catalogGrid">
-        <!-- Cards injected by JS -->
+      <div class="catalog-slider-wrap">
+        <button class="catalog-arrow catalog-arrow-prev" id="catalogPrev" aria-label="Назад">&#8592;</button>
+        <div class="catalog-grid" id="catalogGrid">
+          <!-- Cards injected by JS -->
+        </div>
+        <button class="catalog-arrow catalog-arrow-next" id="catalogNext" aria-label="Вперёд">&#8594;</button>
       </div>
 
       <div class="catalog-note reveal" style="text-align:center; margin: 2rem 0; color: var(--text-secondary); font-size: clamp(0.95rem, 1.2vw, 1.1rem);">
@@ -2512,6 +2549,14 @@
       document.getElementById('leadForm').style.display = 'none';
       document.querySelector('#contactForm h3').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
+    });
+
+    // ===== CATALOG ARROWS =====
+    document.getElementById('catalogPrev').addEventListener('click', () => {
+      catalogGrid.scrollBy({ left: -catalogGrid.offsetWidth * 0.85, behavior: 'smooth' });
+    });
+    document.getElementById('catalogNext').addEventListener('click', () => {
+      catalogGrid.scrollBy({ left: catalogGrid.offsetWidth * 0.85, behavior: 'smooth' });
     });
 
     // ===== SMOOTH SCROLL FOR NAV =====
